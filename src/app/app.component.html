@@ -1,3 +1,30 @@
-<h1>
-  {{title}}
-</h1>
+<app-navbar></app-navbar>
+<div class="container-s">
+  <h1 class="header">Todo</h1>
+  <form class="m-top" #todoForm="ngForm" (ngSubmit)="addTodo(todoForm.value); todoForm.reset()"> 
+        <input type="text"
+              name="name" 
+              class="form-control form-control-lg input" 
+              placeholder="What needs to be done?"
+              ngModel
+              required minlength="4" maxlength="100">
+      <!--<button class="btn btn-primary btn-lg" type="submit">Add Todo</button>-->
+  </form>
+
+    <!--<app-todolist [todo]="selectedTodo" [todo]="todo"></app-todolist>-->
+    <!-- Displays the created todos , adds the delete todo function aswell -->
+    <ul> 
+      <li *ngFor="let todo of todos; let i = index;" (click)="onSelect(todo)">
+        <div class="details">
+          <button class="btn"
+                  (click)="completedTodo(todo)"
+                  [class.completed]="todo.isCompleted">
+          </button>
+          <span class="todo_name" [class.selected]="todo.isCompleted">{{todo.name}}</span>
+          <button class="close btn" aria-label="Close" (click)="deleteTodo(todo)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+</div>

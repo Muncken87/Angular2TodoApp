@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { NavbarComponent } from './navbar/navbar.component';
-// import { TodoService } from './todo.service';
+import { TodoService } from './todo.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
-import { TODOS } from './mock-todos';
-// import { TodoService } from './todo.service';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +9,37 @@ import { TODOS } from './mock-todos';
 })
 export class AppComponent {
   title = 'Todo List';
-  selectedTodo: Todo;
   todos = [];
-  completed = false;
+  selectedTodo: Todo;
+
+
+  constructor(private todoService: TodoService){
+  }
+
+  addTodo(value: any){
+    this.todoService.addTodo(value);
+    console.log("Hello from component");
+  }
+
+   deleteTodo(todo) {
+    this.todoService.deleteTodo(todo);
+  }
+  // Toggle between complete and not complete
+   completedTodo(todo){
+    this.todoService.completedTodo(todo);
+  }
+
+  getTodos(): void{
+    this.todos = this.todoService.getTodos();
+  }
 
   onSelect(todo: Todo): void {
     this.selectedTodo = todo;
   }
 
-  addTodo(value: any) {
-    this.todos.push(value);
-    console.log("This was pushed");
-  } 
-  deleteTodo(todo) {
-    this.todos.splice(todo,1);
-    console.log("This todo has been deleted");
-  }
-  completedTodo(todo){
-    todo.isCompleted = !todo.isCompleted;
-    todo.completed = !todo.completed;
+  ngOnInit(){
+     this.getTodos();
   }
 
-  
+
 }

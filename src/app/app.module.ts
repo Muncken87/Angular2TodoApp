@@ -8,11 +8,13 @@ import { TodolistComponent } from './todolist/todolist.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TodoService } from './todo.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
     NavbarComponent
+
   ],
   imports: [
     BrowserModule,

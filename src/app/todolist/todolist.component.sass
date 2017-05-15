@@ -1,0 +1,70 @@
+.header
+  font-size: 72px
+  margin-top: 30vh
+  text-align: center
+  padding-bottom: 1em
+  color: #f4688b
+  font-weight: bold
+
+.input
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300
+  border-radius: 4px 
+
+ul
+  list-style-type: none
+  padding: 0
+
+  .details
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem;
+    margin-top: 0.2em
+    line-height: 1.25
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .todo_name
+      color: #787878;
+      font-weight: 300;
+
+    .selected
+      text-decoration: line-through
+
+  .btn, .completed
+    border-radius: 50%;
+    border: none;
+    width: 35px;
+    height: 35px;
+    line-height: 25px;
+    outline: none;
+    padding: 0px;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.15)
+    position: relative
+    outline: 0
+    box-shadow: none
+
+    &:hover
+      border-color: rgba(0,0,0,.30)
+
+  .completed
+
+    &:before
+      content: ""
+      background-size: 18px 18px
+      display: inline-block
+      height: 18px
+      width: 18px
+      position: absolute
+      top: 7px
+      left: 8px
+      background-image: url('./assets/checkmark.svg')
+
+
+form
+  display: flex
+  justify-content: center
+  align-items: center
